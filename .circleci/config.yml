@@ -1,16 +1,17 @@
-version: 2.1
-orbs:
-  react: "thefrontside/react@dev:alpha"
+version: 2
+jobs:
+  build:
+    docker:
+    - image: circleci/node:8
+    steps:
+    - checkout
+    - restore_cache: {}
+      key: dependency-cache-{{ checksum "package.json" }}
+    - run: {}
+      name: Setup Dependencies
+      command: npm install
 workflows:
-  push:
+  version: 2
+  workflow:
     jobs:
-      - react/install
-      - react/eslint:
-          requires:
-            - react/install
-      - react/test:
-          requires:
-            - react/install
-      - react/coverage:
-          requires:
-            - react/install
+    - build
