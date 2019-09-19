@@ -5,10 +5,9 @@ jobs:
     - image: circleci/node:8
     steps:
     - checkout
-    - restore_cache: {}
-    - run: {}
-      name: Setup Dependencies
-      command: npm install
+    - run: 
+        name: Running tests
+        command: make test
 workflows:
   version: 2
   workflow:
