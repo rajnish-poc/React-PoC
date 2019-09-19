@@ -6,8 +6,8 @@ jobs:
     steps:
     - checkout
     - run: 
-        name: Running tests
-        command: make test
+        name: Building App
+        command: npm run build
 workflows:
   version: 2
   workflow:
